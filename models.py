@@ -56,7 +56,7 @@ class Match(db.Model):
 	game_id = db.Column(db.Integer, db.ForeignKey('game.id', ondelete='CASCADE'), nullable=False)
 	players = db.Column(db.Integer, default=0)
 	code = db.Column(db.String(4))
-	done = db.Column(db.Boolean())
+	ready = db.Column(db.Boolean(), default=False)
 
 	def __repr__(self):
 		return '<Match: {0}>'.format(self.id)
@@ -67,6 +67,7 @@ class Match(db.Model):
 			'id': self.id,
 			'players': self.players,
 			'code': self.code,
+			'ready': self.ready,
 			'game': self.game.serialize
 		}
 
@@ -74,5 +75,7 @@ class Match(db.Model):
 		if self.players + 1 <= self.game.players:
 			card = self.game.cards[str(self.players+1)]
 			self.players = self.players + 1
+			if self.players == self.game.players:
+				self.ready = True
 			return card
 		return None

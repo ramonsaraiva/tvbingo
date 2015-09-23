@@ -1,6 +1,7 @@
 <div class="container" ng-controller="bingo_controller">
-	<h2>Create a new bingo match</h2>
-	<input type="text" ng-model="players"></input><button ng-click="create()">Create</button>
+<h1><font color="gray">:: TV Simulator</font></h1>
+	<h3>Select the number of players and create a bingo</h3>
+	<input type="text" ng-model="players" placeholder="players"></input><button ng-click="create()">Create</button>
 	<div ng-cloak ng-show="match">
 		<p>
 			<strong>Bingo match created!</strong>
@@ -10,10 +11,22 @@
 				<li>Numbers: {{ match.game.numbers }}</li>
 				<li>Players: {{ match.game.players }}</li>
 			</ul>
+			<h1><strong>{{ match.players }}/{{ match.game.players }} <span ng-cloak ng-hide="match.ready"><font color="orange">Waiting  for players{{ waiting[waiting_i] }}</font></span><span ng-cloak ng-show="match.ready"><font color="green">READY</font></span></strong></h1>
+			<button ng-click="start()">Start bingo</button>
 		</p>
 	</div>
 	<hr style="margin-top: 20px;"/>
 	<hr/>
 
-	<input type="text" ng-model="code"></input><button ng-click="join()">Join bingo</button>
+	<h1><font color="gray">:: Device Simulator</font></h1>
+	<h3>Please enter the code on your tv (QRCode)</h3>
+	<input type="text" ng-model="code" placeholder="code"></input><button ng-click="join()">Join bingo</button>
+
+	<hr style="margin-top: 20px;"/>
+	<hr/>
+
+	<div ng-repeat="card in cards">
+	<h2>Card</h2>
+	<p>{{ card }}</p>
+	</div>
 </div>
