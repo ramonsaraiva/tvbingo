@@ -1,11 +1,11 @@
 {
-  "name": "boilerplate",
+  "name": "tvbingo",
   "version": "0",
   "homepage": "https://github.com/ramonsaraiva/boilerplate",
   "authors": [
     "Ramon Saraiva <ramonsaraiva@gmail.com>"
   ],
-  "description": "boilerplate",
+  "description": "appletv bingo",
   "license": "MIT",
   "ignore": [
     "**/.*",
