@@ -5,6 +5,7 @@
 	<div ng-cloak ng-show="match">
 		<p>
 			<strong>Bingo match created!</strong>
+			<qrcode data="{{ match.code }}" size="200"></qrcode>
 			<ul>
 				<li>Id: {{ match.id }}</li>
 				<li>Code: {{ match.code }}</li>
